@@ -1,0 +1,70 @@
+object Clientes: TClientes
+  Left = 0
+  Top = 0
+  Caption = 'Clientes'
+  ClientHeight = 558
+  ClientWidth = 810
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lbl_fornecedores: TLabel
+    Left = 304
+    Top = 32
+    Width = 222
+    Height = 30
+    Caption = 'LISTA DE CLIENTES'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 30
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object dbgrid_clientes: TDBGrid
+    Left = 40
+    Top = 112
+    Width = 737
+    Height = 409
+    DataSource = DataModule1.DataSource1
+    ReadOnly = True
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object btn_novo: TButton
+    Left = 40
+    Top = 56
+    Width = 97
+    Height = 33
+    Caption = 'Novo'
+    TabOrder = 1
+    OnClick = btn_novoClick
+  end
+  object btn_editar: TButton
+    Left = 680
+    Top = 56
+    Width = 97
+    Height = 33
+    Caption = 'Editar'
+    TabOrder = 2
+    OnClick = btn_editarClick
+  end
+  object btn_excluir: TButton
+    Left = 680
+    Top = 17
+    Width = 97
+    Height = 33
+    Caption = 'Excluir'
+    TabOrder = 3
+    OnClick = btn_excluirClick
+  end
+end

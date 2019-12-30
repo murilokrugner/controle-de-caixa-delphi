@@ -1,0 +1,67 @@
+unit Inicio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.StdCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids, db;
+
+type
+  TClientes = class(TForm)
+    lbl_fornecedores: TLabel;
+    dbgrid_clientes: TDBGrid;
+    btn_novo: TButton;
+    btn_editar: TButton;
+    Edit1: TEdit;
+    procedure btn_novoClick(Sender: TObject);
+    procedure btn_editarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Clientes: TClientes;
+
+implementation
+
+{$R *.dfm}
+
+uses cadastroFornecedores, editarClientes;
+
+procedure TClientes.btn_novoClick(Sender: TObject);
+var
+  id:integer;
+begin
+  Cadastro := TCadastro.Create(self);
+
+  id := StrToInt(Cadastro.DBEdit1.Text) + 1;
+  Cadastro.edit_id.Text := IntToStr(id);
+
+  Cadastro.ShowModal;
+end;
+
+procedure TClientes.btn_editarClick(Sender: TObject);
+var
+  select:string;
+begin
+
+
+
+
+
+  Editar := TEditar.Create(self);
+  Editar.ShowModal;
+
+
+
+
+end;
+
+end.

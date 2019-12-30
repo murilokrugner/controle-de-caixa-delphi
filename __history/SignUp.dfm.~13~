@@ -1,0 +1,145 @@
+object Registrar: TRegistrar
+  Left = 0
+  Top = 0
+  Caption = 'Registrar'
+  ClientHeight = 399
+  ClientWidth = 543
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lbl_title: TLabel
+    Left = 134
+    Top = 24
+    Width = 293
+    Height = 40
+    Caption = 'CRIE UMA CONTA'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lbl_user: TLabel
+    Left = 16
+    Top = 148
+    Width = 83
+    Height = 19
+    Caption = 'USU'#193'RIO:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lbl_password: TLabel
+    Left = 16
+    Top = 206
+    Width = 62
+    Height = 19
+    Caption = 'SENHA:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lbl_repeat_password: TLabel
+    Left = 16
+    Top = 264
+    Width = 141
+    Height = 19
+    Caption = 'REPITA A SENHA'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object edit_user: TEdit
+    Left = 174
+    Top = 150
+    Width = 321
+    Height = 21
+    BorderStyle = bsNone
+    Color = cl3DLight
+    TabOrder = 0
+  end
+  object edit_password: TEdit
+    Left = 174
+    Top = 204
+    Width = 321
+    Height = 21
+    BorderStyle = bsNone
+    Color = cl3DLight
+    TabOrder = 1
+  end
+  object btn_submit: TButton
+    Left = 396
+    Top = 322
+    Width = 99
+    Height = 41
+    Caption = 'CRIAR'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    OnClick = btn_submitClick
+  end
+  object btn_cancel: TButton
+    Left = 248
+    Top = 322
+    Width = 119
+    Height = 41
+    Caption = 'CANCELAR'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+  end
+  object db_edit_id: TDBEdit
+    Left = 8
+    Top = 8
+    Width = 18
+    Height = 21
+    DataField = 'ID'
+    DataSource = DataModule1.DataSource4
+    ReadOnly = True
+    TabOrder = 4
+    Visible = False
+  end
+  object edit_repeat_password: TEdit
+    Left = 174
+    Top = 266
+    Width = 321
+    Height = 21
+    BorderStyle = bsNone
+    Color = cl3DLight
+    TabOrder = 5
+  end
+  object db_edit_name: TDBEdit
+    Left = 8
+    Top = 59
+    Width = 41
+    Height = 21
+    DataField = 'NOME'
+    DataSource = DataModule1.DataSource5
+    TabOrder = 6
+    Visible = False
+  end
+end

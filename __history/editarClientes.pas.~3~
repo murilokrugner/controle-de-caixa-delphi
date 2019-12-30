@@ -1,0 +1,40 @@
+unit editarClientes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TEditar = class(TForm)
+    edit_id: TEdit;
+    edit_nome: TEdit;
+    edit_telefone: TEdit;
+    edit_email: TEdit;
+    lbl_id: TLabel;
+    lbl_nome: TLabel;
+    lbl_telefone: TLabel;
+    lbl_email: TLabel;
+    btn_salvar: TButton;
+    btn_cancelar: TButton;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Editar: TEditar;
+
+implementation
+
+{$R *.dfm}
+
+uses db;
+
+end.

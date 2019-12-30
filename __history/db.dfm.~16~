@@ -1,0 +1,94 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 360
+  Width = 439
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=C:\Firebird\DBF.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Server=localhost'
+      'CharacterSet=UTF8'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 48
+    Top = 40
+  end
+  object DataSource1: TDataSource
+    DataSet = FDQuery1
+    Left = 48
+    Top = 120
+  end
+  object FDQuery1: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      
+        'select id, nome, telefone, email from clientes where excluded = ' +
+        #39'F'#39' order by id asc')
+    Left = 144
+    Top = 40
+  end
+  object FDQuery2: TFDQuery
+    Connection = FDConnection1
+    Left = 48
+    Top = 192
+  end
+  object FDQuery3: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select first 1 id from clientes ORDER BY id DESC')
+    Left = 112
+    Top = 176
+  end
+  object DataSource2: TDataSource
+    DataSet = FDQuery3
+    Left = 120
+    Top = 112
+  end
+  object FDQuery4: TFDQuery
+    Connection = FDConnection1
+    Left = 320
+    Top = 32
+  end
+  object DataSource3: TDataSource
+    DataSet = FDQuery4
+    Left = 384
+    Top = 32
+  end
+  object FDQuery5: TFDQuery
+    Connection = FDConnection1
+    Left = 200
+    Top = 168
+  end
+  object FDQuery6: TFDQuery
+    Connection = FDConnection1
+    Left = 360
+    Top = 256
+  end
+  object DataSource4: TDataSource
+    DataSet = FDQuery7
+    Left = 232
+    Top = 264
+  end
+  object FDQuery7: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select first 1 id from usuarios ORDER BY id DESC')
+    Left = 360
+    Top = 160
+  end
+  object FDQuery8: TFDQuery
+    Connection = FDConnection1
+    Left = 256
+    Top = 152
+  end
+  object DataSource5: TDataSource
+    DataSet = FDQuery8
+    Left = 152
+    Top = 240
+  end
+end

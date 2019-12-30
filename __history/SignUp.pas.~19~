@@ -1,0 +1,99 @@
+unit SignUp;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Hash, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TRegistrar = class(TForm)
+    edit_user: TEdit;
+    edit_password: TEdit;
+    lbl_title: TLabel;
+    lbl_user: TLabel;
+    lbl_password: TLabel;
+    btn_submit: TButton;
+    btn_cancel: TButton;
+    db_edit_id: TDBEdit;
+    lbl_repeat_password: TLabel;
+    edit_repeat_password: TEdit;
+    procedure btn_submitClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Registrar: TRegistrar;
+
+implementation
+
+{$R *.dfm}
+
+uses db;
+
+procedure TRegistrar.btn_submitClick(Sender: TObject);
+var
+  query, id, hash:string;
+begin
+  db.DataModule1.FDQuery6.SQL.Clear;
+
+  //query := db.DataModule1.FDQuery6.SQL.Add('select nome from usuarios where nome =' +
+    //chr(39) + edit_user + chr(39));
+
+  db.DataModule1.FDQuery6.Active;
+  db.DataModule1.FDQuery6.ExecSQL;
+
+  if (edit_user = '') or (edit_password = '') or (edit_repeat_password = '') then
+    begin
+      ShowMessage('Preencha todos os dados');
+    end
+  else if query = edit_user then
+    begin
+      ShowMessage('Já existe um usuário com esse nome, use outro');
+    end
+  else if edit_password <> edit_repeat_password then
+    begin
+      ShowMessage('As senhas digitadas ão são iguais!');
+    end
+  else
+    begin
+      try
+        db.DataModule1.FDQuery6.SQL.Clear;
+
+        if db_edit_id.Text = '' then
+          begin
+            id := '1';
+          end
+        else
+          begin
+            id := IntToStr(StrToInt(db_edit_id) + 1);
+          end;
+
+        hash := THashMD5.GetHashString(edit_password);
+
+        db.DataModule1.FDQuery6.SQL.Add('insert into usuarios(id, nome, senha) values ('
+        + chr(39) + id + chr(39) + ',' + chr(39) + edit_user + chr(39) + ',' + chr(39)
+        + hash + chr(39)+ ');');
+
+        db.DataModule1.FDQuery6.Active;
+        db.DataModule1.FDQuery6.ExecSQL;
+
+        ShowMessage('Usuário Cadastrado, faça Login!');
+
+        db_edit_id.DataSource.DataSet.Refresh;
+
+        Registrar.Close;
+
+
+
+      except
+        ShowMessage('Não foi possivel cadastrar o usuário!');
+
+      end;
+    end;
+
+end;
+end.
